@@ -7,7 +7,7 @@ WITH payments as (
         ,Amount/100 as amount
         ,Created as created_at
 
-    FROM stripe_payments
+    FROM {{ source('stripe', 'stripe_payments') }}
 )
 
 SELECT * FROM payments
